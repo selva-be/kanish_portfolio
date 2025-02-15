@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Cash Counter Designl</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        .carousel img {
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .thumbnail {
+            transition: transform 0.3s ease;
+        }
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 flex flex-col min-h-screen">
+    <header class="bg-gray-800 shadow-md z-10 relative">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="flex items-center space-x-4">
+                <div class="text-2xl font-bold text-pink-600">Kanish</div>
+                <nav class="hidden md:flex space-x-4">
+                    <a class="text-gray-300 hover:text-pink-600" href="main.html">Home</a>
+                <a class="text-gray-300 hover:text-pink-600" href="main.html">About</a>
+                <a class="text-gray-300 hover:text-pink-600" href="main.html">Project</a>
+                </nav>
+            </div>
+            <a class="bg-pink-600 text-white px-4 py-2 rounded-full hidden md:block" href="main.html">Contact Me</a>
+            <button id="mobile-menu-button" class="md:hidden text-pink-600">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <nav class="flex flex-col space-y-4 p-4">
+                <a class="text-gray-300 hover:text-pink-600" href="main.html">Home</a>
+                <a class="text-gray-300 hover:text-pink-600" href="main.html">About</a>
+                <a class="text-gray-300 hover:text-pink-600" href="main.html">Project</a>
+                <a class="bg-pink-600 text-white px-4 py-2 rounded-full" href="main.html">Contact Me</a>
+            </nav>
+        </div>
+    </header>
+    <main class="flex-grow flex flex-col items-center justify-center px-4">
+        <div class="flex mt-4 space-x-2 justify-center flex-wrap relative">
+            <button class="absolute left-4 bottom-1/2 transform translate-y-1/2 bg-gray-700 rounded-full shadow-md p-2" onclick="prevThumbnailPage()">
+                <i class="fas fa-chevron-left text-gray-300"></i>
+            </button>
+            <div id="thumbnail-container" class="flex overflow-hidden space-x-2">
+                <div class="thumbnail-page active flex space-x-2">
+                    <img alt="img_1" class="thumbnail w-20 h-12 md:w-24 md:h-14 object-cover rounded-lg shadow-md cursor-pointer" height="60" src="./img/p3/p1.jpg" width="100" onclick="showImage(0)"/>
+                    <img alt="img_2" class="thumbnail w-20 h-12 md:w-24 md:h-14 object-cover rounded-lg shadow-md cursor-pointer" height="60" src="./img/p3/p2.jpg" width="100" onclick="showImage(1)"/>
+                    <img alt="img_3" class="thumbnail w-20 h-12 md:w-24 md:h-14 object-cover rounded-lg shadow-md cursor-pointer" height="60" src="./img/p3/p3.jpg" width="100" onclick="showImage(2)"/>
+                    <img alt="img_4" class="thumbnail w-20 h-12 md:w-24 md:h-14 object-cover rounded-lg shadow-md cursor-pointer" height="60" src="./img/p3/p4.jpg" width="100" onclick="showImage(3)"/>
+                </div>
+               
+            </div>
+            <button class="absolute right-4 bottom-1/2 transform translate-y-1/2 bg-gray-700 rounded-full shadow-md p-2" onclick="nextThumbnailPage()">
+                <i class="fas fa-chevron-right text-gray-300"></i>
+            </button>
+        </div>
+        <br>
+        <div class="w-full max-w-xl mx-auto">
+            <div class="relative carousel">
+                <img alt="img_1" class="w-full rounded-lg shadow-lg active" height="225" src="./img/p3/p1.jpg" width="400"/>
+                <img alt="img_2" class="w-full rounded-lg shadow-lg" height="225" src="./img/p3/p2.jpg" width="400"/>
+                <img alt="img_3" class="w-full rounded-lg shadow-lg" height="225" src="./img/p3/p3.jpg" width="400"/>
+                <img alt="img_4" class="w-full rounded-lg shadow-lg" height="225" src="./img/p3/p4.jpg" width="400"/>
+                <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 rounded-full shadow-md p-2" onclick="prevImage()">
+                    <i class="fas fa-chevron-left text-gray-300"></i>
+                </button>
+                <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 rounded-full shadow-md p-2" onclick="nextImage()">
+                    <i class="fas fa-chevron-right text-gray-300"></i>
+                </button>
+            </div>
+        </div>
+        <div class="w-full max-w-4xl mx-auto mt-8">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl md:text-2xl font-bold mb-4">Project Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2">Basic Information</h3>
+                        <p class="mb-2"><strong>Project Name:</strong> Cash Counter Design and Implementation</p>
+                        <p class="mb-2"><strong>Client:</strong> Bilal</p>
+                        <p class="mb-2"><strong>Project Type:</strong> Residential</p>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2">Project Description</h3>
+                        <p>This project involves the design and construction of a custom cash counter tailored for a residential client named Bilal. The design emphasizes functionality and aesthetics, ensuring efficient space utilization while maintaining a modern and professional appearance.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg mt-6">
+                    <h3 class="text-lg md:text-xl font-semibold mb-2">Key Features</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Multiple Configurations: Two types of cash counters with distinct layouts to accommodate various functional needs.</li>
+                        <li>Detailed Design Specifications: Precise measurements, including sections for drawers, open areas, and multiple storage compartments.</li>
+                        <li>3D Visualization: Detailed 3D views of internal and external elevations for comprehensive visualization.</li>
+                        <li>High-Quality Materials: Premium materials for both internal and external finishes, ensuring durability and a sleek look.</li>
+                        <li>Custom Dimensions: Custom-sized counters with dimensions like 450mm and 750mm segments, and 1200mm and 600mm modular components.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg mt-6">
+                    <h3 class="text-lg md:text-xl font-semibold mb-2">Technical Aspects</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Plans and Elevations: Detailed architectural plans, including sectional views and external elevations.</li>
+                        <li>3D Modeling and Rendering: Advanced 3D modeling techniques for design visualization before implementation.</li>
+                        <li>Client-Centric Design: Customized to the client's requirements for a perfect fit in the designated space.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-700 p-4 rounded-lg mt-6">
+                    <h3 class="text-lg md:text-xl font-semibold mb-2">Challenges and Solutions</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Space Optimization: Achieved by designing modular components that maximize storage while maintaining a clean and organized appearance.</li>
+                        <li>Aesthetic Appeal: Maintained through thoughtful material selection and precise elevation planning.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-900 text-white text-center py-4 mt-12">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <ul class="flex justify-center md:justify-start space-x-6 mb-4 md:mb-0">
+             
+            </ul>
+            <div class="flex justify-center space-x-6 mb-4 md:mb-0">
+                <a href="#" class="icon-circle text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="icon-circle text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="icon-circle text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="text-gray-400"></p>
+        </div>
+    </footer>
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+
+        function showImage(index) {
+            images[currentIndex].classList.remove('active');
+            currentIndex = index;
+            images[currentIndex].classList.add('active');
+        }
+
+        function nextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        function prevImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(nextImage, 2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kanish Kumar MK Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a202c;
+            /* Dark background */
+            color: #cbd5e0;
+            /* Light text */
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .fade-in-out {
+            animation: fadeInOut 6s infinite;
+        }
+
+        @keyframes fadeInOut {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            10%,
+            90% {
+                opacity: 1;
+            }
+        }
+
+        .glow-on-hover {
+            position: relative;
+            z-index: 0;
+        }
+
+        .glow-on-hover::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            z-index: -1;
+            filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .glow-on-hover:hover::before {
+            opacity: 1;
+        }
+
+        .profile-image-1-personal-left-fixed {
+            position: sticky;
+            top: 40px;
+            left: 20px;
+            bottom: 80px;
+            padding: 20px;
+            border: 1px solid rgba(121, 121, 121, 0.09);
+            z-index: 1;
+            border: 5px solid #1a202c;
+            /* Dark border */
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+            background-color: #2d3748;
+            /* Dark card background */
+        }
+
+        .card:hover {
+            transform: rotateY(10deg) rotateX(10deg);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transition: left 0.5s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            /* Reduced font size */
+        }
+
+        .active-link {
+            border-bottom: 2px solid #d53f8c;
+        }
+
+        .contact-section {
+            background: url('https://www.transparenttextures.com/patterns/small-checks.png');
+        }
+
+        .social-icon:hover i {
+            color: #ff6ec4;
+            /* Change icon color on hover */
+        }
+
+        .icon-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1a202c;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .icon-circle:hover {
+            background-color: #2d3748;
+            transform: scale(1.1);
+        }
+
+        @media (min-width: 768px) {
+            .md\:h-screen {
+                height: 80vh !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+    <header class="bg-gray-800 shadow-md z-10 relative">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="flex items-center space-x-4">
+                <div class="text-2xl font-bold text-pink-600">Kanish</div>
+                <nav class="hidden md:flex space-x-4">
+                    <a class="text-gray-300 hover:text-pink-600" href="#home" id="nav-home">Home</a>
+                    <a class="text-gray-300 hover:text-pink-600" href="#about" id="nav-about">About</a>
+                    <a class="text-gray-300 hover:text-pink-600" href="#project" id="nav-project">Project</a>
+                </nav>
+            </div>
+            <a class="bg-pink-600 text-white px-4 py-2 rounded-full hidden md:block" href="#contact">Contact Me</a>
+            <button id="mobile-menu-button" class="md:hidden text-pink-600">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <nav class="flex flex-col space-y-4 p-4">
+                <a class="text-gray-300 hover:text-pink-600" href="#home">Home</a>
+                <a class="text-gray-300 hover:text-pink-600" href="#about">About</a>
+                <a class="text-gray-300 hover:text-pink-600" href="#project">Project</a>
+                <a class="bg-pink-600 text-white px-4 py-2 rounded-full" href="#contact">Contact Me</a>
+            </nav>
+        </div>
+    </header>
+    <div class="flex flex-col md:flex-row px-4 md:px-12">
+        <div
+            class="w-full md:w-1/3 h-64 md:h-screen md:h-60vh overflow-hidden relative profile-image-1-personal-left-fixed">
+            <img alt="Kanish Kumar MK working on a laptop" class="w-full h-full object-cover" height="800"
+                src="./img/img1.jpg" width="600" />
+
+            <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black to-transparent">
+                <h1 class="text-4xl font-bold text-white">
+                    Hello I'm <span class="text-pink-600">Kanish Kumar MK</span>, a
+                    <span class="text-pink-600 fade-in-out">Designer</span>
+                </h1>
+            </div>
+            <div class="absolute top-4 left-4 flex space-x-2">
+                <a class="bg-pink-600 text-white rounded-full px-3 py-1" href="https://facebook.com" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="bg-pink-600 text-white rounded-full px-3 py-1" href="https://twitter.com" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="bg-pink-600 text-white rounded-full px-3 py-1" href="https://instagram.com" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="bg-pink-600 text-white rounded-full px-3 py-1" href="https://linkedin.com" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+        <div class="w-full md:w-2/3 p-6 overflow-y-auto h-screen no-scrollbar">
+            <main class="container mx-auto py-12 px-6">
+                <section class="mt-12" id="home">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center"><i class="fas fa-home mr-2"></i> Introduce
+                    </h2>
+                    <h3 class="text-3xl font-bold">Say Hi from <span class="text-pink-600">Kanish Kumar MK</span>,
+                        Designer</h3>
+                    <p class="mt-4">
+                        An accomplished design professional proficient in both civil engineering and interior design
+                        disciplines, I bring a unique blend of skills and experience to the table. With 3 years of
+                        comprehensive practice, I possess a deep understanding of architectural principles, construction
+                        methodologies, and aesthetic considerations, allowing me to deliver integrated and impactful
+                        solutions across diverse projects.
+                    </p>
+                    <div class="flex flex-col md:flex-row mt-8 space-y-4 md:space-y-0 md:space-x-4">
+                        <div class="bg-gray-800 shadow-md p-4 rounded-lg text-center card">
+                            <div class="text-xl font-bold">+91 8248275311</div>
+                            <div class="text-pink-600 mt-2">Contact Number</div>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-4 rounded-lg text-center card">
+                            <div class="text-xl font-bold">kanishvinish30@gmail.com</div>
+                            <div class="text-pink-600 mt-2">Email</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <a class="bg-pink-600 text-white px-4 py-2 rounded-full glow-on-hover"
+                            download="Kanish_Kumar_MK_CV.pdf" href="./img/doc.pdf">Download CV</a>
+                    </div>
+                </section>
+                <section class="mt-12" id="about">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center"><i class="fas fa-user mr-2"></i> About Me</h2>
+                    <h3 class="text-3xl font-bold">Every great design begins with an even better story</h3>
+                    <p class="mt-4">
+                        An accomplished design professional proficient in both civil engineering and interior design
+                        disciplines, I bring a unique blend of skills and experience to the table. With 3 years of
+                        comprehensive practice, I possess a deep understanding of architectural principles, construction
+                        methodologies, and aesthetic considerations, allowing me to deliver integrated and impactful
+                        solutions across diverse projects.
+                    </p>
+                </section>
+                <section class="mt-12" id="experience">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center"><i class="fas fa-briefcase mr-2"></i>
+                        Experience</h2>
+                    <div class="mt-8 space-y-6">
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg card">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-bold">CIVIC INFRAS, Hosur</h4>
+                                    <div class="text-gray-400">Jun 2021 - Jul 2022</div>
+                                </div>
+                                <div class="bg-pink-600 text-white px-4 py-2 rounded-full">INTERIOR DESIGNER</div>
+                            </div>
+                            <p class="mt-4 text-gray-400">
+                                Worked with General Manager/ Engineers to coordinate resources required for job.
+                                Organized and updated all changes requested by Clients and Engineers in order to keep.
+                                Transferred designer's concepts, ideas and sketches into professional documented
+                                blueprints. Developed interior and exterior elevations, floor plans and sections
+                                details.
+                            </p>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg card">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-bold">JAS INTERIORS, Chennai</h4>
+                                    <div class="text-gray-400">Jul 2022 - Present</div>
+                                </div>
+                                <div class="bg-pink-600 text-white px-4 py-2 rounded-full">INTERIOR DESIGNER</div>
+                            </div>
+                            <p class="mt-4 text-gray-400">
+                                Diverse Portfolio: Accomplished in residential, commercial, and hospitality design.
+                                Client-Focused: Exceed expectations with collaborative design. Efficient Management:
+                                Timely, budget-conscious project execution.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="mt-12" id="education">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center"><i class="fas fa-graduation-cap mr-2"></i>
+                        Education</h2>
+                    <div class="mt-8 space-y-6">
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg card">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-bold">University College of Engineering, Nagercoil</h4>
+                                    <div class="text-gray-400">AUGUST 2017 - MAY 2021</div>
+                                </div>
+                                <div class="bg-pink-600 text-white px-4 py-2 rounded-full">B.E (Civil)</div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg card">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-bold">Success Solution, Nagercoil</h4>
+                                    <div class="text-gray-400">AutoCAD</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg card">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-bold">CAD Desk, Nagercoil</h4>
+                                    <div class="text-gray-400">SketchUp, and Lumion</div>
+                                </div>
+                            </div>
+                            <p class="mt-4 text-gray-400">
+                                Completed AutoCAD, SketchUp, and Lumion. Learning 2D and 3D modeling, rendering, and
+                                animation techniques for architectural and engineering design. Gained practical
+                                experience in creating detailed drawings, models, and presentations for various
+                                real-world projects.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="mt-12" id="expertise">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center"><i class="fas fa-tools mr-2"></i> Expertise
+                    </h2>
+                    <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg text-center card">
+                            <i class="fas fa-drafting-compass text-4xl text-pink-600 mb-2"></i>
+                            <div class="card-text">autoCAD</div>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg text-center card">
+                            <i class="fas fa-cube text-4xl text-pink-600 mb-2"></i>
+                            <div class="card-text">SKETCHUP</div>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg text-center card">
+                            <i class="fas fa-paint-brush text-4xl text-pink-600 mb-2"></i>
+                            <div class="card-text">LUMION</div>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg text-center card">
+                            <i class="fas fa-ruler-combined text-4xl text-pink-600 mb-2"></i>
+                            <div class="card-text">INFURNIA</div>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg text-center card">
+                            <i class="fas fa-tools text-4xl text-pink-600 mb-2"></i>
+                            <div class="card-text">CABINET VISION</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mt-12" id="project">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center"><i class="fas fa-project-diagram mr-2"></i> My
+                        Projects</h2>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg text-center card">
+                            <img alt="Poster for Project 1" class="w-full h-48 object-cover mb-4" height="300"
+                                src="./img/p1/p1.jpg"
+                                width="400" />
+                            <h4 class="text-xl font-bold">Pantry and Kitchen Interior</h4>
+                           
+                            <a class="text-pink-600 mt-4 inline-block" href="project_1.html">View All</a>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg text-center card">
+                            <img alt="Poster for Project 2" class="w-full h-48 object-cover mb-4" height="300"
+                                src="./img/p2/p1.jpg"
+                                width="400" />
+                            <h4 class="text-xl font-bold">Bespoke Modular Wardrobes</h4>
+
+                            <a class="text-pink-600 mt-4 inline-block" href="project_2.html">View All</a>
+                        </div>
+                        <div class="bg-gray-800 shadow-md p-6 rounded-lg text-center card">
+                            <img alt="Poster for Project 3" class="w-full h-48 object-cover mb-4" height="300"
+                                src="./img/p3/p1.jpg"
+                                width="400" />
+                            <h4 class="text-xl font-bold">Cash Counter Design</h4>
+                        
+                            <a class="text-pink-600 mt-4 inline-block" href="project_3.html">View All</a>
+                        </div>
+                    </div>
+                </section>
+                <section class="hire-me-section py-12 px-6 bg-gray-900 text-white" id="hire-me">
+                    <div class="container mx-auto flex flex-col md:flex-row items-center">
+                        <div class="w-full md:w-2/3 p-6 text-center md:text-left">
+                            <h2
+                                class="text-2xl font-bold mb-4 text-white flex items-center justify-center md:justify-start">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0 4c-4 0-6 2-6 4h12c0-2-2-4-6-4z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                                Hire Me
+                            </h2>
+                            <p class="mt-4 text-gray-400">
+                                Looking for a skilled designer and civil engineer to bring your project to life? I'm
+                                available for
+                                freelance work and full-time positions. Let's create something amazing together!
+                            </p>
+                            <div class="mt-8">
+                                <a class="bg-pink-600 text-white px-4 py-2 rounded-full glow-on-hover"
+                                    download="Kanish_Kumar_MK_CV.pdf" href="./img/doc.pdf">Download CV</a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/3 h-48 md:h-64 overflow-hidden relative">
+                            <img alt="Icon representing hiring opportunities" class="w-full h-full object-cover"
+                                height="100"
+                                src="https://storage.googleapis.com/a1aa/image/kw-Wy-WFWYnWmXV51wKzZNKae7SWBgpkxEfMjjr3Xo4.jpg"
+                                width="100" />
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contact-section py-12 px-6 bg-gray-900 text-white" id="contact">
+                    <div class="container mx-auto flex flex-col md:flex-row items-center">
+                        <div class="w-full md:w-1/3 h-48 md:h-64 overflow-hidden relative">
+                            <img alt="Contact Us Image" class="w-full h-full object-cover" height="400"
+                                src="https://storage.googleapis.com/a1aa/image/8e7WV2A_4mTfjk6tPmKNlAQffkZH8zAdk-fvZhzrxec.jpg"
+                                width="300">
+                            </img>
+                        </div>
+                        <div class="w-full md:w-2/3 p-6">
+                            <h2 class="text-2xl font-bold mb-4 text-white flex items-center">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 10l1 2m0 0l1 2m-1-2h14m-5-5h5m-5 5l-1 2m-1-2l1-2m1 2h-5m5 5h5"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                                Contact Us
+                            </h2>
+                            <form class="mt-8 space-y-6">
+                                <div>
+                                    <label class="block text-gray-300" for="name">Name</label>
+                                    <input
+                                        class="w-full mt-2 p-2 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                                        id="name" name="name" required="" type="text" />
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300" for="email">Email</label>
+                                    <input
+                                        class="w-full mt-2 p-2 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                                        id="email" name="email" required="" type="email" />
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300" for="message">Message</label>
+                                    <textarea
+                                        class="w-full mt-2 p-2 border border-gray-600 bg-gray-800 text-white rounded-lg"
+                                        id="message" name="message" required="" rows="4"></textarea>
+                                </div>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+                                    type="submit">Send
+                                    Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <footer class="bg-gray-900 text-white text-center py-4 mt-12">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <ul class="flex justify-center md:justify-start space-x-6 mb-4 md:mb-0">
+             
+            </ul>
+            <div class="flex justify-center space-x-6 mb-4 md:mb-0">
+                <a href="#" class="icon-circle text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="icon-circle text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="icon-circle text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="text-gray-400"></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
